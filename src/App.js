@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import GithubUser from "./Components/Pages/GithubUser";
+import Home from "./Components/Pages/Home";
+import NotFound from "./Components/Shared/NotFound";
+
+export const UserContext = createContext();
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [username, setUsername] = useState("");
+
+    return (
+        <UserContext.Provider value={[username, setUsername]}>
+            <Routes>
+                <Route path="/" element={<Home />} />
+
+                <Route path="/:username" element={<GithubUser />} />
+
+                <Route path="/user-not-found" element={<NotFound />} />
+            </Routes>
+        </UserContext.Provider>
+    );
 }
 
 export default App;
