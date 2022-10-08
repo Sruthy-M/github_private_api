@@ -38,7 +38,7 @@ const useRepositories = (username, setRepositories) => {
             });
     }, [size, username, page, pageNumber]);
 
-    return { pageLoading, page, setPage, pageNumber, setNewer, newer };
+    return { pageLoading, page,size, setPage, setSize, pageNumber, setNewer, newer };
 };
 
 export default useRepositories;

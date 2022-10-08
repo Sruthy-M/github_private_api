@@ -4,7 +4,7 @@ import Repository from "./Repository";
 
 const Repositories = ({ repositories, pageLoading }) => {
     if (pageLoading) {
-        return <Circles height={70} width={70} radius={4} color="#4fa94d" ariaLabel="ball-triangle-loading" wrapperStyle={{ justifyContent: "center", alignItems: "center", height: "100vh" }} visible={true} />;
+        return <Circles height={100} width={100} radius={5} color="#4fa94d" ariaLabel="Circles-loading" wrapperStyle={{ justifyContent: "center", alignItems: "center", height: "100vh" }} visible={true} />;
     }
     return (
         <div>
